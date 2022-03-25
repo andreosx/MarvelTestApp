@@ -10,7 +10,6 @@ import com.test.marveltestapp.util.Constants;
 import com.test.marveltestapp.util.retrofit.ApiRequest;
 import com.test.marveltestapp.util.retrofit.RetrofitRequest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,9 +28,7 @@ public class CharacterViewModel extends ViewModel {
                 .enqueue(new Callback<Characters>() {
                     @Override
                     public void onResponse(Call<Characters> call, Response<Characters> response) {
-                        List<Result> characterDtoList = new ArrayList<>();;
-                        characterDtoList.addAll(response.body().getData().getResults());
-                        charactersDTO.setValue(characterDtoList);
+                        charactersDTO.setValue(response.body().getData().getResults());
                     }
                     @Override
                     public void onFailure(Call<Characters> call, Throwable t) {
