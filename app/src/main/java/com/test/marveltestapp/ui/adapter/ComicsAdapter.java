@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -17,15 +16,12 @@ import java.util.List;
 
 public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder>{
 
-    private Context ctx;
     private List<Result> mData;
     private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
 
     public ComicsAdapter(Context context, List<Result> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
-        this.ctx = context;
     }
 
     @Override
@@ -48,7 +44,7 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
         return mData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         AppCompatTextView txtTitle;
         AppCompatTextView txtDate;
         AppCompatTextView txtDescription;
@@ -58,25 +54,7 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
             txtTitle = itemView.findViewById(R.id.txt_title);
             txtDate = itemView.findViewById(R.id.txt_date);
             txtDescription = itemView.findViewById(R.id.txt_description);
-            itemView.setOnClickListener(this);
         }
-
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
-        }
-    }
-
-    public Result getItem(int id) {
-        return mData.get(id);
-    }
-
-    public void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
     }
 }
 

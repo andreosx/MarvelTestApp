@@ -35,7 +35,7 @@ public class ComicsActivity extends AppCompatActivity {
         comicsViewModel = new ViewModelProvider(this).get(ComicsViewModel.class);
         setContentView(R.layout.activity_character);
         recyclerView = findViewById(R.id.rvComics);
-        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mProgressBar = findViewById(R.id.progressBar);
 
         getExtras();
         setToolbar();

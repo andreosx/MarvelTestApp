@@ -32,7 +32,7 @@ public class CharactersActivity extends AppCompatActivity implements CharactersA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.rvCharacters);
-        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mProgressBar = findViewById(R.id.progressBar);
 
         characterViewModel = new ViewModelProvider(this).get(CharacterViewModel.class);
         observable();
