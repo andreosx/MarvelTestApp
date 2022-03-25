@@ -1,12 +1,12 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.comics;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class Image {
+public class Thumbnail {
 
     @SerializedName("path")
     @Expose

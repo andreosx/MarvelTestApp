@@ -1,9 +1,10 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.comics;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
 public class Price {
@@ -13,7 +14,7 @@ public class Price {
     private String type;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private Double price;
 
     public String getType() {
         return type;
@@ -23,11 +24,11 @@ public class Price {
         this.type = type;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

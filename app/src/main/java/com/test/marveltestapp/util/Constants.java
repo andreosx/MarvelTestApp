@@ -9,6 +9,7 @@ public class Constants {
     public static final String PUBLIC_KEY = "f4f5e03c12cdcc5e5505881b7ec1cfee";
     public static final String PRIVATE_KEY = "2805dec96ad84b5fe74a12cde15ee6959ccccd4f";
     public static final int COLUMNS_VIEW_CHARACTERS = 2;
+    public static final int COLUMNS_VIEW_COMICS = 1;
 
     public static String getHash(){
         return Constants.md5(TS+PRIVATE_KEY+PUBLIC_KEY);

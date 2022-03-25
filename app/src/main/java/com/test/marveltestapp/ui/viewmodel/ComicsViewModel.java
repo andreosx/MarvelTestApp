@@ -4,26 +4,43 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.test.marveltestapp.data.dto.Character;
-import com.test.marveltestapp.data.dto.Comics;
-import com.test.marveltestapp.data.repository.MarvelRepository;
+import com.test.marveltestapp.data.dto.comics.ComicsDto;
+import com.test.marveltestapp.data.dto.comics.Result;
+import com.test.marveltestapp.util.Constants;
+import com.test.marveltestapp.util.retrofit.ApiRequest;
+import com.test.marveltestapp.util.retrofit.RetrofitRequest;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ComicsViewModel extends ViewModel {
 
-    MarvelRepository marvelRepository;
-    String characterId;
-    LiveData<List<Comics>> comicsDTO = new MutableLiveData<>();
+    private MutableLiveData<List<Result>> comicsData = new MutableLiveData<>();
+    private MutableLiveData<Throwable> requestError = new MutableLiveData<>();
 
-    public ComicsViewModel() {
-        marvelRepository = new MarvelRepository();
-        this.comicsDTO = marvelRepository.getComics(characterId);
+    public void getComics(String characterId){
+        ApiRequest api = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+
+        api.getComics(characterId, Constants.TS, Constants.PUBLIC_KEY, Constants.getHash())
+                .enqueue(new Callback<ComicsDto>() {
+                    @Override
+                    public void onResponse(Call<ComicsDto> call, Response<ComicsDto> response) {
+                        List<Result> comicsList = new ArrayList<>();
+                        comicsList.addAll(response.body().getData().getResults());
+                        comicsData.setValue(comicsList);
+                    }
+                    @Override
+                    public void onFailure(Call<ComicsDto> call, Throwable t) {
+                        requestError.setValue(t);
+                    }
+                });
     }
 
-    public void setCharacterId(String characterId){
-        this.characterId = characterId;
-    }
-    public LiveData<List<Comics>> getComicsLiveData() { return comicsDTO;  }
+    public LiveData<Throwable> getOnError() {return requestError; }
+    public LiveData<List<Result>> getComicsLiveData() { return comicsData; }
 
 }

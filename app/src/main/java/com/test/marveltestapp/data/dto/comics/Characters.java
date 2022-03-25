@@ -1,5 +1,5 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.comics;
 
 import java.util.List;
 import javax.annotation.Generated;

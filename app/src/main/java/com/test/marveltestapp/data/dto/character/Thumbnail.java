@@ -1,5 +1,5 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.character;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

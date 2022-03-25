@@ -1,5 +1,5 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.comics;
 
 import java.util.List;
 import javax.annotation.Generated;
@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class Events {
+public class Stories {
 
     @SerializedName("available")
     @Expose
@@ -17,7 +17,7 @@ public class Events {
     private String collectionURI;
     @SerializedName("items")
     @Expose
-    private List<Item__3> items = null;
+    private List<Item__2> items = null;
     @SerializedName("returned")
     @Expose
     private Integer returned;
@@ -38,11 +38,11 @@ public class Events {
         this.collectionURI = collectionURI;
     }
 
-    public List<Item__3> getItems() {
+    public List<Item__2> getItems() {
         return items;
     }
 
-    public void setItems(List<Item__3> items) {
+    public void setItems(List<Item__2> items) {
         this.items = items;
     }
 

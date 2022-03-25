@@ -1,19 +1,19 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.comics;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class Date {
+public class Url {
 
     @SerializedName("type")
     @Expose
     private String type;
-    @SerializedName("date")
+    @SerializedName("url")
     @Expose
-    private String date;
+    private String url;
 
     public String getType() {
         return type;
@@ -23,12 +23,12 @@ public class Date {
         this.type = type;
     }
 
-    public String getDate() {
-        return date;
+    public String getUrl() {
+        return url;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }

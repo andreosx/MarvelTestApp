@@ -1,12 +1,12 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.character;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class Item__2 {
+public class Item__3 {
 
     @SerializedName("resourceURI")
     @Expose
@@ -14,9 +14,6 @@ public class Item__2 {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("type")
-    @Expose
-    private String type;
 
     public String getResourceURI() {
         return resourceURI;
@@ -32,14 +29,6 @@ public class Item__2 {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
 }

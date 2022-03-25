@@ -10,21 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.test.marveltestapp.R;
-import com.test.marveltestapp.data.dto.character.Result;
-import com.test.marveltestapp.util.ImageUtil;
+import com.test.marveltestapp.data.dto.comics.Result;
 
 import java.util.List;
 
-public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.ViewHolder>{
+public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder>{
 
     private Context ctx;
     private List<Result> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    public CharactersAdapter(Context context, List<Result> data) {
+    public ComicsAdapter(Context context, List<Result> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.ctx = context;
@@ -33,19 +31,16 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Vi
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_item_character, parent, false);
+        View view = mInflater.inflate(R.layout.recyclerview_item_comics, parent, false);
         return new ViewHolder(view);
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtName.setText(mData.get(position).getName());
-
-        Glide.with(ctx)
-                .load(ImageUtil.getUrlImg(mData.get(position),"portrait_xlarge"))
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .into(holder.ivThumbnail);
+        holder.txtTitle.setText(mData.get(position).getTitle());
+        holder.txtDate.setText(mData.get(position).getModified());
+        holder.txtDescription.setText(mData.get(position).getDescription());
     }
 
     @Override
@@ -54,13 +49,15 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        AppCompatTextView txtName;
-        ImageView ivThumbnail;
+        AppCompatTextView txtTitle;
+        AppCompatTextView txtDate;
+        AppCompatTextView txtDescription;
 
         private ViewHolder(View itemView) {
             super(itemView);
-            txtName = itemView.findViewById(R.id.txt_name);
-            ivThumbnail = itemView.findViewById(R.id.iv_thumbnail);
+            txtTitle = itemView.findViewById(R.id.txt_title);
+            txtDate = itemView.findViewById(R.id.txt_date);
+            txtDescription = itemView.findViewById(R.id.txt_description);
             itemView.setOnClickListener(this);
         }
 

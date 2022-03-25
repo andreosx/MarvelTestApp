@@ -1,11 +1,11 @@
 package com.test.marveltestapp.util;
 
-import com.test.marveltestapp.data.dto.Character;
+import com.test.marveltestapp.data.dto.character.Result;
 
 public class ImageUtil {
 
-    public static String getUrlImg(Character character, String size) {
-        String imgUrl = character.getThumbnail().getPath()+"/"+size+"."+character.getThumbnail().getExtension();
+    public static String getUrlImg(Result characterDto, String size) {
+        String imgUrl = characterDto.getThumbnail().getPath()+"/"+size+"."+ characterDto.getThumbnail().getExtension();
         imgUrl = imgUrl.replace("http","https");
         return imgUrl;
     }

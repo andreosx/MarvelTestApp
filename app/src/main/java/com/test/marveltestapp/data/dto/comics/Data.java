@@ -1,5 +1,5 @@
 
-package com.test.marveltestapp.data.dto;
+package com.test.marveltestapp.data.dto.comics;
 
 import java.util.List;
 import javax.annotation.Generated;
@@ -23,7 +23,7 @@ public class Data {
     private Integer count;
     @SerializedName("results")
     @Expose
-    private List<Character> characters = null;
+    private List<Result> results = null;
 
     public Integer getOffset() {
         return offset;
@@ -57,12 +57,12 @@ public class Data {
         this.count = count;
     }
 
-    public List<Character> getCharacters() {
-        return characters;
+    public List<Result> getResults() {
+        return results;
     }
 
-    public void setCharacters(List<Character> characters) {
-        this.characters = characters;
+    public void setResults(List<Result> results) {
+        this.results = results;
     }
 
 }
