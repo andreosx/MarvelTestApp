@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.test.marveltestapp.data.dto.comics.ComicsDto;
 import com.test.marveltestapp.data.dto.comics.Result;
 import com.test.marveltestapp.util.Constants;
-import com.test.marveltestapp.util.retrofit.ApiRequest;
+import com.test.marveltestapp.data.api.ApiRequest;
 import com.test.marveltestapp.util.retrofit.RetrofitRequest;
 
 import java.util.List;

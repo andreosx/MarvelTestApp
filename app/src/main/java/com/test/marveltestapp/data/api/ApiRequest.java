@@ -1,4 +1,4 @@
-package com.test.marveltestapp.util.retrofit;
+package com.test.marveltestapp.data.api;
 
 import com.test.marveltestapp.data.dto.character.Characters;
 import com.test.marveltestapp.data.dto.comics.ComicsDto;
