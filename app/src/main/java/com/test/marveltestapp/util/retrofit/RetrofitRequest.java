@@ -9,6 +9,8 @@ public class RetrofitRequest {
 
     private static Retrofit retrofit;
 
+    private void RetrofitRequest(){}
+
     public static Retrofit getRetrofitInstance() {
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
